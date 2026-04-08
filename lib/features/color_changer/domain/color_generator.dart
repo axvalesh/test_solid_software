@@ -16,10 +16,10 @@ class ColorGenerator {
       _maxValue,
       _random.nextInt(_maxValue + 1),
       _random.nextInt(_maxValue + 1),
-      _random.nextInt(_maxValue + 1)
+      _random.nextInt(_maxValue + 1),
     );
   }
-  // first I wanted to just invert text color, but it looked not 
+  // first I wanted to just invert text color, but it looked not
   // readable in some cases
 
   // Color invertedColor(Color color) {
@@ -35,9 +35,7 @@ class ColorGenerator {
   Color getReadableTextColor(Color background) {
     final brightness = ThemeData.estimateBrightnessForColor(background);
 
-    return brightness == Brightness.dark
-        ? Colors.white
-        : Colors.black;
+    return brightness == Brightness.dark ? Colors.white : Colors.black;
   }
 
   /// text representation color as rgb
@@ -51,9 +49,9 @@ class ColorGenerator {
 
   /// text representation color as hex
   String formatHex(Color color) {
-  final r = _to255(color.r);
-  final g = _to255(color.g);
-  final b = _to255(color.b);
+    final r = _to255(color.r);
+    final g = _to255(color.g);
+    final b = _to255(color.b);
 
     return '#'
         '${r.toRadixString(_hexBase).padLeft(_hexLength, '0').toUpperCase()}'

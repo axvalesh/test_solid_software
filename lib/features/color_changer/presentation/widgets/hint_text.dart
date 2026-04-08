@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Shows hint and hides after duration
 class HintText extends StatefulWidget {
-  /// Text 
+  /// Text
   final String text;
 
   /// Duration before the hint disappears
@@ -13,7 +13,9 @@ class HintText extends StatefulWidget {
 
   /// TimedHint
   const HintText({
-    required this.text, required this.duration, super.key,
+    required this.text,
+    required this.duration,
+    super.key,
     this.style,
   });
 
@@ -48,18 +50,19 @@ class _HintTextState extends State<HintText> with TickerProviderStateMixin {
   }
 
   @override
-Widget build(BuildContext context) {
-
-  return AnimatedSize(
-    duration: Duration(milliseconds: _animationDurationInMs),
-    child: AnimatedOpacity(
+  Widget build(BuildContext context) {
+    return AnimatedSize(
       duration: Duration(milliseconds: _animationDurationInMs),
-      opacity: _visible ? 1 : 0,
-      child: _removed ?const SizedBox.shrink() : Text(
-        widget.text,
-        style: widget.style,
+      child: AnimatedOpacity(
+        duration: Duration(milliseconds: _animationDurationInMs),
+        opacity: _visible ? 1 : 0,
+        child: _removed
+            ? const SizedBox.shrink()
+            : Text(
+                widget.text,
+                style: widget.style,
+              ),
       ),
-    ),
-  );
-}
+    );
+  }
 }

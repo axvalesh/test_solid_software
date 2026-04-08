@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:test_solid_software/features/color_changer/domain/color_generator.dart';
 import 'package:test_solid_software/features/color_changer/presentation/widgets/hint_text.dart';
 
-
 /// main screen
 class ColorScreen extends StatefulWidget {
   /// main screen
@@ -14,13 +13,11 @@ class ColorScreen extends StatefulWidget {
 }
 
 class _ColorScreenState extends State<ColorScreen> {
-
   final ColorGenerator colorGenerator = ColorGenerator();
   Color _colorBackground = Colors.white;
   Color _colorText = Colors.black;
   String get rgbText => colorGenerator.formatRgb(_colorBackground);
   String get hexText => colorGenerator.formatHex(_colorBackground);
-
 
   void _changeColor() {
     setState(() {
@@ -84,7 +81,7 @@ class _ColorScreenState extends State<ColorScreen> {
                     ),
                   ),
                 ],
-              )
+              ),
             ),
           ),
         ),

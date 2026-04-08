@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_solid_software/features/color_changer/presentation/color_screen.dart';
+
 /// entry point
 class App extends StatelessWidget {
   /// entry point
