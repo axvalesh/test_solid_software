@@ -5,10 +5,6 @@ import 'package:flutter/material.dart';
 class ColorGenerator {
   final Random _random = Random();
   static const int _maxValue = 255;
-  static const int _hexBase = 16;
-  static const int _hexLength = 2;
-
-  int _to255(double value) => (value * _maxValue).round();
 
   /// generate random rgb
   Color generateRandom() {
@@ -32,30 +28,9 @@ class ColorGenerator {
   // }
 
   /// pick white or black text color
-  Color getReadableTextColor(Color background) {
+  static Color getReadableTextColor(Color background) {
     final brightness = ThemeData.estimateBrightnessForColor(background);
 
     return brightness == Brightness.dark ? Colors.white : Colors.black;
-  }
-
-  /// text representation color as rgb
-  String formatRgb(Color color) {
-    final r = _to255(color.r);
-    final g = _to255(color.g);
-    final b = _to255(color.b);
-
-    return 'RGB($r, $g, $b)';
-  }
-
-  /// text representation color as hex
-  String formatHex(Color color) {
-    final r = _to255(color.r);
-    final g = _to255(color.g);
-    final b = _to255(color.b);
-
-    return '#'
-        '${r.toRadixString(_hexBase).padLeft(_hexLength, '0').toUpperCase()}'
-        '${g.toRadixString(_hexBase).padLeft(_hexLength, '0').toUpperCase()}'
-        '${b.toRadixString(_hexBase).padLeft(_hexLength, '0').toUpperCase()}';
   }
 }

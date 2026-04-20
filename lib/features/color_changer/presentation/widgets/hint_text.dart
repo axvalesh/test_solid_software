@@ -23,7 +23,7 @@ class HintText extends StatefulWidget {
   State<HintText> createState() => _HintTextState();
 }
 
-class _HintTextState extends State<HintText> with TickerProviderStateMixin {
+class _HintTextState extends State<HintText> {
   bool _visible = true;
   bool _removed = false;
   final int _animationDurationInMs = 400;
